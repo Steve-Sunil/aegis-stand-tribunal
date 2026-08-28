@@ -8,5 +8,4 @@ EXPOSE 8080
 
 ENV PORT=8080
 
-# Start server
 CMD ["python", "server.py"]
