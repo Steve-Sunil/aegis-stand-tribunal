@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY . /app
 
-# Expose default Cloud Run port (8080)
 EXPOSE 8080
 
 ENV PORT=8080
