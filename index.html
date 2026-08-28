@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEGIS STAND TRIBUNAL | Multi-Agent Deliberation Clash</title>
+  <meta name="description" content="High-fashion dramatic multi-agent candidate deliberation clash with isolated personas, voice debate, and evidentiary reasoning.">
+  
+  <!-- Google Fonts: Outfit (High Fashion Clean Bold), Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Atmospheric Menacing Manga Sound Particles -->
+  <div class="jojo-atmosphere" aria-hidden="true">
+    <span class="menace-fx fx-1">ゴ</span>
+    <span class="menace-fx fx-2">ゴ</span>
+    <span class="menace-fx fx-3">ゴ</span>
+    <span class="menace-fx fx-4">ド</span>
+    <span class="menace-fx fx-5">ゴ</span>
+    <span class="menace-fx fx-6">ド</span>
+  </div>
+
+  <div class="app-container">
+    
+    <!-- Top Header & Navigation -->
+    <header class="header-bar">
+      <div class="brand-logo">
+        <div class="brand-icon">
+          <span>⚡</span>
+        </div>
+        <div class="brand-title">
+          <h1>AEGIS STAND TRIBUNAL</h1>
+          <div class="brand-subtitle">◆ MULTI-AGENT DELIBERATION CLASH & VOICE DEBATE ◆</div>
+        </div>
+      </div>
+
+      <!-- Step Navigation Tracker -->
+      <nav class="steps-nav" aria-label="Assessment Pipeline Steps">
+        <button id="stepNav1" class="step-tab active" data-step="1">
+          <span class="step-badge">I</span>
+          <span>FACT INGESTION</span>
+        </button>
+        <button id="stepNav2" class="step-tab" data-step="2" disabled>
+          <span class="step-badge">II</span>
+          <span>ISOLATED MINDS</span>
+        </button>
+        <button id="stepNav3" class="step-tab" data-step="3" disabled>
+          <span class="step-badge">III</span>
+          <span>DEBATE CLASH</span>
+        </button>
+        <button id="stepNav4" class="step-tab" data-step="4" disabled>
+          <span class="step-badge">IV</span>
+          <span>DELIBERATION</span>
+        </button>
+        <button id="stepNav5" class="step-tab" data-step="5" disabled>
+          <span class="step-badge">V</span>
+          <span>SUPREME VERDICT</span>
+        </button>
+      </nav>
+
+      <!-- Global Actions -->
+      <div class="header-actions">
+        <button id="btnOpenSettings" class="btn btn-secondary btn-sm" title="Configure Live LLM API Keys">
+          ⚙️ CONFIG
+        </button>
+        <button id="btnResetApp" class="btn btn-secondary btn-sm" title="Reset Assessment">
+          🔄 RESTART
+        </button>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT VIEWS -->
+    <main id="mainAppContent">
+
+      <!-- ====================================================================
+           STEP 1: Candidate Profile Builder & Shared Fact Base
+           ==================================================================== -->
+      <section id="stepView1" class="view-section active" aria-labelledby="step1Heading">
+        <div class="section-title-wrap">
+          <div class="stage-tag">STAGE I • THE CONTENDER</div>
+          <h2 id="step1Heading" class="section-heading">SELECT THE CANDIDATE & EXTRACT IMMUTABLE FACTS</h2>
+          <p class="section-desc">
+            Choose a contender below to initiate the tribunal analysis, or submit custom resume dossiers and verbatim cross-examination transcripts.
+          </p>
+        </div>
+
+        <!-- Preset Candidate Selector -->
+        <div id="presetGrid" class="preset-grid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Ingestion Split View: Resume & Transcript -->
+        <div class="ingestion-split">
+          <!-- Resume Panel -->
+          <div class="text-card">
+            <div class="text-card-header">
+              <h4>📜 CANDIDATE RESUME DOSSIER</h4>
+              <span id="resumeWordCount" class="word-counter">0 words</span>
+            </div>
+            <textarea id="resumeInput" class="raw-textarea" placeholder="Paste candidate resume here..."></textarea>
+          </div>
+
+          <!-- Transcript Panel -->
+          <div class="text-card">
+            <div class="text-card-header">
+              <h4>🎙️ VERBATIM INTERVIEW TRANSCRIPT</h4>
+              <span id="transcriptWordCount" class="word-counter">0 words</span>
+            </div>
+            <textarea id="transcriptInput" class="raw-textarea" placeholder="Paste interview transcript here [00:00] Speaker: ..."></textarea>
+          </div>
+        </div>
+
+        <!-- Shared Fact Base Preview (Generated upon ingestion) -->
+        <div id="sharedFactBaseCard" class="fact-base-container" style="display: none;">
+          <div class="fact-section-title">
+            <span class="gold-symbol">✦</span>
+            <span>IMMUTABLE SHARED FACT BASE</span>
+            <span class="lock-pill">SYNCHRONIZED TO ALL 4 AGENTS</span>
+          </div>
+
+          <div class="fact-grid">
+            <div class="fact-pill-box">
+              <h5>Technical Masteries</h5>
+              <div id="factSkillsCloud" class="pill-cloud"></div>
+            </div>
+
+            <div class="fact-pill-box">
+              <h5>Quantified Resume Claims</h5>
+              <div id="factClaimsList" style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem;"></div>
+            </div>
+
+            <div class="fact-pill-box">
+              <h5>Indexed Dialogue Turns</h5>
+              <div id="factQuotesCount" style="font-size: 0.95rem; font-weight: 700; color: var(--color-gold);"></div>
+              <div id="factQuotesSample" style="margin-top: 0.5rem; font-size: 0.82rem; font-style: italic; color: #e2e8f0;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Action CTA -->
+        <div class="action-toolbar" style="margin-top: 2rem; justify-content: flex-end;">
+          <button id="btnExtractAndEvaluate" class="btn btn-primary btn-large">
+            <span>IGNITE ISOLATED PERSONA ASSESSMENTS</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           STEP 2: 4 Isolated AI Personas (Strict Isolation Phase)
+           ==================================================================== -->
+      <section id="stepView2" class="view-section" aria-labelledby="step2Heading">
+        <div class="section-title-wrap">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <div class="stage-tag">STAGE II • ISOLATED MINDS</div>
+              <h2 id="step2Heading" class="section-heading">INDEPENDENT PERSONA EVALUATIONS</h2>
+              <p class="section-desc">
+                Four distinct personas evaluate in total isolation with zero cross-agent influence. Every argument is locked to direct quote evidence.
+              </p>
+            </div>
+            <div class="isolation-lock-banner">
+              <span class="lock-icon">🔒</span>
+              <span>STRICT ISOLATION PROTOCOL: ACTIVE</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Agent Opinion Cards Grid -->
+        <div id="isolatedAgentsGrid" class="agents-grid">
+          <!-- Rendered dynamically by app.js -->
+        </div>
+
+        <!-- Action CTA -->
+        <div class="action-toolbar">
+          <button id="btnBackToStep1" class="btn btn-secondary">
+            <span>← RETREAT TO DOSSIER</span>
+          </button>
+          <button id="btnProceedToDebate" class="btn btn-primary btn-large">
+            <span>ENTER THE DEBATE CLASH ARENA</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           STEP 3: Multi-Round Live Debate Arena & Voice Synthesis
+           ==================================================================== -->
+      <section id="stepView3" class="view-section" aria-labelledby="step3Heading">
+        <div class="section-title-wrap">
+          <div class="stage-tag">STAGE III • THE DEBATE CLASH</div>
+          <h2 id="step3Heading" class="section-heading">DEBATE ARENA — THE CLASH OF PERSPECTIVES</h2>
+          <p class="section-desc">
+            Direct cross-examination, evidentiary challenges, dynamic stance concessions, and real-time synthesized voice debate.
+          </p>
+        </div>
+
+        <!-- Voice Debate Controls & Waveform Visualizer -->
+        <div class="voice-control-bar">
+          <div class="voice-playback-actions">
+            <button id="btnPlayVoiceDebate" class="btn btn-accent btn-sm">
+              <span id="playIcon">▶</span>
+              <span id="playLabel">PLAY VOICE DEBATE</span>
+            </button>
+            <button id="btnPauseVoiceDebate" class="btn btn-secondary btn-sm" disabled>
+              ⏸ PAUSE
+            </button>
+            <button id="btnPrevVoiceTurn" class="btn btn-secondary btn-icon-only" title="Previous Speaker">
+              ⏮
+            </button>
+            <button id="btnNextVoiceTurn" class="btn btn-secondary btn-icon-only" title="Next Speaker">
+              ⏭
+            </button>
+          </div>
+
+          <!-- Real-time Waveform Canvas -->
+          <div class="visualizer-wrapper">
+            <span class="visualizer-label">STAND AURA RESONANCE</span>
+            <canvas id="audioWaveCanvas" width="300" height="42"></canvas>
+          </div>
+
+          <!-- Speed & Voice Selector -->
+          <div style="display: flex; align-items: center; gap: 0.75rem;">
+            <label for="voiceSpeedSelect" style="font-size: 0.78rem; font-weight: 800; color: var(--color-gold);">TEMPO:</label>
+            <select id="voiceSpeedSelect" class="voice-speed-select">
+              <option value="0.9">0.9x Measured</option>
+              <option value="1.0" selected>1.0x Standard</option>
+              <option value="1.25">1.25x Dynamic</option>
+              <option value="1.5">1.5x Rapid</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Active Persona Spotlights -->
+        <div id="personaSoptlights" class="persona-spotlights">
+          <!-- Rendered dynamically -->
+        </div>
+
+        <!-- Debate Stream (Turn-by-turn Speech Bubbles) -->
+        <div class="debate-stage">
+          <div id="debateTurnStream" class="debate-stream">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Stance Evolution Differential Matrix -->
+        <div style="margin-top: 2rem;">
+          <h4 class="subheading-accent">◆ POST-DEBATE STANCE EVOLUTION & CONCESSION MATRIX</h4>
+          <div id="stanceEvolutionGrid" class="stance-evolution-grid">
+            <!-- Rendered dynamically -->
+          </div>
+        </div>
+
+        <!-- Action CTA -->
+        <div class="action-toolbar">
+          <button id="btnBackToStep2" class="btn btn-secondary">
+            <span>← PREVIOUS STEP</span>
+          </button>
+          <button id="btnProceedToDecision" class="btn btn-primary btn-large">
+            <span>SUMMON FINAL EVIDENTIARY VERDICT</span>
+            <span>➔</span>
+          </button>
+        </div>
+      </section>
+
+
+      <!-- ====================================================================
+           STEP 4 & 5: Evidentiary Deliberation & Executive Dossier Final Report
+           ==================================================================== -->
+      <section id="stepView4" class="view-section" aria-labelledby="step4Heading">
+        <div class="section-title-wrap">
+          <div class="stage-tag">STAGE IV & V • THE SUPREME VERDICT</div>
+          <h2 id="step4Heading" class="section-heading">THE SUPREME EVIDENTIARY VERDICT</h2>
+          <p class="section-desc">
+            Deliberative synthesis weighing mathematical proof, fatal red-flag vetoes, and unresolved peer friction without simple averaging.
+          </p>
+        </div>
+
+        <!-- Final Verdict Hero Banner -->
+        <div id="dossierHeroBanner" class="dossier-hero">
+          <div class="verdict-left">
+            <div id="finalVerdictStamp" class="verdict-stamp strong-hire">STRONG HIRE</div>
+            <div class="verdict-meta">
+              <h2 id="dossierCandidateName">Candidate Name</h2>
+              <div id="dossierLevelingTag" class="leveling-tag">Principal Distributed Systems Engineer</div>
+            </div>
+          </div>
+
+          <div class="score-stats">
+            <div class="stat-box">
+              <div id="dossierScoreVal" class="stat-val">96</div>
+              <div class="stat-lbl">EVIDENTIARY SCORE</div>
+            </div>
+            <div class="stat-box">
+              <div id="dossierConfidenceVal" class="stat-val">94%</div>
+              <div class="stat-lbl">CONFIDENCE</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Why Simple Averaging Failed Callout Box -->
+        <div class="reasoning-breakdown-card">
+          <div class="callout-averaging-banner">
+            <div>
+              <strong class="callout-title">⚖️ EVIDENTIARY REASONING vs NAIVE SCORE AVERAGING</strong>
+              <div class="callout-subtitle">
+                Mathematical averaging masks fatal flaws and critical verified breakthroughs. The tribunal applies rigorous evidentiary weights.
+              </div>
+            </div>
+            <div id="mathComparisonBadge" class="math-comparison">
+              Simple Avg: 76/100 ⇄ Deliberated Score: 75/100
+            </div>
+          </div>
+
+          <div id="dossierReasoningText" class="reasoning-body">
+            <!-- Reasoning summary injected here -->
+          </div>
+        </div>
+
+        <!-- Two-Column Strengths vs Concerns with Quotes -->
+        <div class="strengths-concerns-grid">
+          <div class="finding-list-card strengths-card">
+            <h4><span class="icon-accent">✦</span> VERIFIED PILLARS (ANCHORED IN PROOF)</h4>
+            <div id="verifiedStrengthsList"></div>
+          </div>
+
+          <div class="finding-list-card concerns-card">
+            <h4><span class="icon-accent">⚡</span> CRITICAL DISCREPANCIES & RED FLAGS</h4>
+            <div id="verifiedConcernsList"></div>
+          </div>
+        </div>
+
+        <!-- Unresolved Disagreements Tracker -->
+        <div class="unresolved-conflicts-card">
+          <h4 class="conflict-title">
+            <span class="icon-gold">⚡</span> RESIDUAL FRICTION & UNRESOLVED PERSPECTIVES
+          </h4>
+          <div id="unresolvedConflictsList"></div>
+        </div>
+
+        <!-- Action Toolbar with PDF Export -->
+        <div class="action-toolbar">
+          <button id="btnBackToDebate" class="btn btn-secondary">
+            <span>← REPLAY DEBATE ARENA</span>
+          </button>
+          
+          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
+            <button id="btnExportPDF" class="btn btn-secondary">
+              📜 EXPORT PDF DOSSIER
+            </button>
+            <button id="btnCopyMarkdown" class="btn btn-secondary">
+              📋 COPY MARKDOWN DOSSIER
+            </button>
+            <button id="btnRestart" class="btn btn-primary">
+              🔄 SUMMON NEXT CANDIDATE
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ====================================================================
+         MODALS & TOASTS
+         ==================================================================== -->
+    
+    <!-- API Settings Modal -->
+    <div id="settingsModal" class="modal-overlay">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h3 style="font-size: 1.2rem; font-weight: 800; color: var(--color-gold);">
+            ⚙️ TRIBUNAL CONFIGURATION
+          </h3>
+          <button id="btnCloseSettings" class="btn btn-secondary btn-sm">✕</button>
+        </div>
+        
+        <div class="form-group">
+          <label for="llmProviderSelect">AI Deliberation Engine</label>
+          <select id="llmProviderSelect" class="form-control">
+            <option value="offline" selected>Deterministic High-Fidelity Simulation (Instant, No API Key)</option>
+            <option value="gemini">Google Gemini API (Live Real-Time Reasoning)</option>
+            <option value="openai">OpenAI API (GPT-4o)</option>
+          </select>
+        </div>
+
+        <div id="apiKeyGroup" class="form-group" style="display: none;">
+          <label for="apiKeyInput">API Secret Key</label>
+          <input id="apiKeyInput" type="password" class="form-control" placeholder="Enter your API secret key...">
+          <small style="color: #94a3b8; font-size: 0.75rem; margin-top: 0.35rem; display: block;">
+            Your key remains local in your browser memory and is never shared externally.
+          </small>
+        </div>
+
+        <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
+          <button id="btnSaveSettings" class="btn btn-primary btn-sm">SAVE CONFIGURATION</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="toast-container"></div>
+
+  </div>
+
+  <!-- Scripts: Modular Application Controller -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
